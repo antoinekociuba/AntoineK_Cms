@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * This file is part of AntoineK_Cms for Magento.
+ *
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author Antoine Kociuba <antoine.kociuba@gmail.com> <@antoinekociuba>
+ * @category AntoineK
+ * @package AntoineK_Cms
+ * @copyright Copyright (c) 2015 Antoine Kociuba (http://www.antoinekociuba.com)
+ */
+-->
+<config>
+    <modules>
+        <AntoineK_Cms>
+            <version>1.0.0</version>
+        </AntoineK_Cms>
+    </modules>
+    <adminhtml>
+        <events>
+            <adminhtml_block_html_before>
+                <observers>
+                    <antoinek_cms>
+                        <class>antoinek_cms/observer</class>
+                        <method>adminhtmlBlockHtmlBefore</method>
+                    </antoinek_cms>
+                </observers>
+            </adminhtml_block_html_before>
+        </events>
+    </adminhtml>
+    <global>
+        <blocks>
+            <cms>
+                <rewrite>
+                    <!-- Rewrite in order to use core/template functionalities -->
+                    <block>AntoineK_Cms_Block_Rewrite_Block</block>
+                    <!-- Rewrite in order to set CMS block object to block, and not only content -->
+                    <widget_block>AntoineK_Cms_Block_Rewrite_Widget_Block</widget_block>
+                </rewrite>
+            </cms>
+        </blocks>
+        <helpers>
+            <antoinek_cms>
+                <class>AntoineK_Cms_Helper</class>
+            </antoinek_cms>
+        </helpers>
+        <models>
+            <antoinek_cms>
+                <class>AntoineK_Cms_Model</class>
+            </antoinek_cms>
+            <cms>
+                <rewrite>
+                    <!-- Rewrite in order to override event properties + add filter method -->
+                    <block>AntoineK_Cms_Model_Rewrite_Block</block>
+                </rewrite>
+            </cms>
+        </models>
+        <resources>
+            <antoinek_cms_setup>
+                <setup>
+                    <module>AntoineK_Cms</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </antoinek_cms_setup>
+        </resources>
+        <events>
+            <cms_block_load_after>
+                <observers>
+                    <antoinek_cms>
+                        <class>antoinek_cms/observer</class>
+                        <method>cmsBlockLoadAfter</method>
+                    </antoinek_cms>
+                </observers>
+            </cms_block_load_after>
+            <cms_block_save_after>
+                <observers>
+                    <antoinek_cms>
+                        <class>antoinek_cms/observer</class>
+                        <method>cmsBlockSaveAfter</method>
+                    </antoinek_cms>
+                </observers>
+            </cms_block_save_after>
+        </events>
+        <!-- belows are examples of additional fiedsets/fields -->
+        <!--<cms>
+            <block>
+                <additional_fields>
+                    <fieldset_one translate="label" module="namespace_module">
+                        <label>Fieldset One</label>
+                        <fields>
+                            <text_field translate="label" module="namespace_module">
+                                <type>text</type>
+                                <label>Text</label>
+                                <title>Text</title>
+                                <required>0</required>
+                            </text_field>
+                            <textarea_field translate="label title" module="namespace_module">
+                                <type>textarea</type>
+                                <label>Textarea</label>
+                                <title>Textarea</title>
+                                <required>1</required>
+                            </textarea_field>
+                            <editor translate="label title" module="namespace_module">
+                                <type>editor</type>
+                                <label>Editor</label>
+                                <title>Editor</title>
+                            </editor>
+                            <select translate="label title" module="namespace_module">
+                                <type>select</type>
+                                <label>Select</label>
+                                <title>Select</title>
+                                <options>
+                                    <value1>Option1</value1>
+                                    <value2>Option2</value2>
+                                </options>
+                            </select>
+                            <mediachooser translate="label title" module="namespace_module">
+                                <type>mediachooser</type>
+                                <label>AntoineK Media Chooser</label>
+                                <title>AntoineK Media Chooser</title>
+                            </mediachooser>
+                        </fields>
+                    </fieldset_one>
+                    <fieldset_two translate="label" module="namespace_module">
+                        <label>Fieldset Two</label>
+                        <fields>
+                            <text_field_two translate="label" module="namespace_module">
+                                <type>text</type>
+                                <label>Text Field Label</label>
+                                <title>Text Field Title</title>
+                            </text_field_two>
+                        </fields>
+                    </fieldset_two>
+                </additional_fields>
+            </block>
+        </cms>-->
+    </global>
+</config>
