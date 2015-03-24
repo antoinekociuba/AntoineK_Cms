@@ -6,7 +6,7 @@ I'm not taking any risk by saying that CMS blocks are widely used on Magento. Th
 
 This module aims to extend default CMS blocks functionnalies by offering an easy additionnal fields configuration, and by adding the use of custom templates for rendering (inspired from [Mbiz_Cms](https://github.com/monsieurbiz/Mbiz_Cms)).
 
-## How to use it?
+## How-To use it?
 
 Out of the box, the module does absolutely nothing until you have set it up properly inside your project.
 
@@ -23,7 +23,7 @@ Let's imagine you have just installed it, and you have got the following module 
 │   │   │   │   │    │    ├── widget.xml
 ```
 
-### How to add custom CMS block fields?
+### How-To add custom CMS block fields?
 
 Let's add the following inside `config.xml` file:
 
@@ -109,7 +109,7 @@ If you now go to CMS block edit page, you should see 2 new fieldsets with some n
 
 Those extra data will be all saved together (JSON format) inside a new DB table `cms_block_additional`.
 
-### How to use those extra data on frontend?
+### How-To use those extra data on frontend?
 
 You could simply define a template on any CMS block added through layout files:
 ```xml
