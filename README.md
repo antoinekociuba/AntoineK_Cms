@@ -18,9 +18,9 @@ Let's imagine you have just installed it, and you have got the following module 
 │   │   ├── local
 │   │   │   ├── YourNamespace
 │   │   │   │   ├── ModuleName
-│   │   │   │   │    ├── etc
-│   │   │   │   │    │    ├── config.xml
-│   │   │   │   │    │    ├── widget.xml
+│   │   │   │   │   ├── etc
+│   │   │   │   │   │   ├── config.xml
+│   │   │   │   │   │   ├── widget.xml
 ```
 
 ### How-To add custom CMS block fields
