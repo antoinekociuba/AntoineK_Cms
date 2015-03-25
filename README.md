@@ -107,7 +107,7 @@ Let's add the following inside `config.xml` file:
 
 If you now go to CMS block edit page, you should see 2 new fieldsets with some new various fields.
 
-Those extra data will be all saved together (JSON format) inside a new DB table `cms_block_additional`.
+Those extra data will be all saved together (JSON format) into a new DB table `cms_block_additional`.
 
 ### How-To use those extra data on frontend
 
