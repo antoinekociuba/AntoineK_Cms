@@ -6,7 +6,7 @@ I'm not taking any risk by saying that CMS blocks are widely used on Magento. Th
 
 This module aims to extend default CMS blocks functionalities by offering an easy additional fields configuration, and by adding the use of custom templates for rendering (inspired from [Mbiz_Cms](https://github.com/monsieurbiz/Mbiz_Cms)).
 
-This module also allows the use of custom templates for CMS pages rendering
+This module also allows the use of custom templates for CMS pages rendering.
 
 ## How-To use it
 
@@ -174,7 +174,7 @@ You could also define extra templates for default CMS block widget, in your `wid
 
 You could simply define a template on CMS page block declaration (let's suppose we are on the local.xml layout file of our custom theme):
 ```xml
-    <cms_page
+    <cms_page>
         <reference name="cms_page">
             <action method="setTemplate">
                 <template>foo/bar/baz.phtml</template>
@@ -199,6 +199,7 @@ $_pageContent = $this->getCmsPageContent();
  */
 $_pageTitle = $_page->getTitle();
 ?>
+
 ...
 ```
 
