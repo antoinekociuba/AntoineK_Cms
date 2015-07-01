@@ -36,6 +36,8 @@
                     <block>AntoineK_Cms_Block_Rewrite_Block</block>
                     <!-- Rewrite in order to set CMS block object to block, and not only content -->
                     <widget_block>AntoineK_Cms_Block_Rewrite_Widget_Block</widget_block>
+                    <!-- Rewrite in order to use core/template functionalities -->
+                    <page>AntoineK_Cms_Block_Rewrite_Page</page>
                 </rewrite>
             </cms>
         </blocks>

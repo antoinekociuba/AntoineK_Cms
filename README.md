@@ -4,7 +4,9 @@
 
 I'm not taking any risk by saying that CMS blocks are widely used on Magento. The problem is that, they do not offer much flexibilities with only one WYSIWYG field...
 
-This module aims to extend default CMS blocks functionnalies by offering an easy additionnal fields configuration, and by adding the use of custom templates for rendering (inspired from [Mbiz_Cms](https://github.com/monsieurbiz/Mbiz_Cms)).
+This module aims to extend default CMS blocks functionalities by offering an easy additional fields configuration, and by adding the use of custom templates for rendering (inspired from [Mbiz_Cms](https://github.com/monsieurbiz/Mbiz_Cms)).
+
+This module also allows the use of custom templates for CMS pages rendering
 
 ## How-To use it
 
@@ -166,6 +168,38 @@ You could also define extra templates for default CMS block widget, in your `wid
         </parameters>
     </cms_static_block>
 </widgets>
+```
+
+### How-To render CMS pages through a specific template file
+
+You could simply define a template on CMS page block declaration (let's suppose we are on the local.xml layout file of our custom theme):
+```xml
+    <cms_page
+        <reference name="cms_page">
+            <action method="setTemplate">
+                <template>foo/bar/baz.phtml</template>
+            </action>
+        </reference>
+    </cms_page>
+```
+And then, inside `foo/bar/baz.phtml` template, just use the following methods to grab CMS page informations:
+
+```php
+<?php
+/** @var Mage_Cms_Model_Page $_page */
+$_page = $this->getCmsPage();
+
+/**
+ * Filtered page content
+ */
+$_pageContent = $this->getCmsPageContent();
+
+/**
+ * Page title
+ */
+$_pageTitle = $_page->getTitle();
+?>
+...
 ```
 
 Enjoy! ;-)
