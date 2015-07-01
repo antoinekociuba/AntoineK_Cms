@@ -63,6 +63,24 @@ class AntoineK_Cms_Block_Rewrite_Widget_Block extends Mage_Cms_Block_Widget_Bloc
         return $this;
     }
 
+    /**
+     * To HTML
+     *
+     * @return null|string
+     */
+    protected function _toHtml()
+    {
+        /**
+         * Return nothing is associated CMS block has been properly assigned
+         * (disabled, deleted etc...)
+         */
+        if (!$this->getCmsBlock()) {
+            return null;
+        }
+
+        return parent::_toHtml();
+    }
+
 // Antoine Kociuba Tag NEW_METHOD
 
 }
