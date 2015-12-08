@@ -35,7 +35,13 @@ class AntoineK_Cms_Block_Rewrite_Block extends Mage_Core_Block_Template
         ) {
 
             $html = $this->getFilteredContent();
-            $this->addModelTags($block);
+            
+            /**
+             * Backward compatibility for Magento < CE 1.8 / EE 1.13
+             */ 
+            if (method_exists($this,'addModelTags')) {
+                $this->addModelTags($block);
+            }
         }
 
         /**
